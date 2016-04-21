@@ -1,0 +1,19 @@
+<Context>
+<!-- "Define connection pool: context.xml"
+"this is a tomcat specific file that basically tells tomcat how to connect to your database
+  and it also tells tomcat how to configure your pool, such as how many connections to create up front,
+  minimal number of connections etc, " -->
+  
+  <!-- the name is an alias that we will use to look up this connection pool, 
+  namely in an @resource annotation.-->
+  <!-- whenever you see DataSource, its connection pool we talk about -->
+  <!-- maxActive: means maximum 20 connections in our pool -->
+  <!-- maxIdle, if no users in system, we will have atleast 5 connections availab,.e -->
+  <!-- maxWait, wait time till to get a connection for user in ms  -->
+  <Resource name="jdbc/web_page_jsp_db" 
+  			auth="Container" type="javax.sql.DataSource"
+               maxActive="20" maxIdle="5" maxWait="10000"
+               username="web_page_jsp_db" password="web_page_jsp_db" 
+               driverClassName="com.mysql.jdbc.Driver"
+               url="jdbc:mysql://localhost:3306/web_page_jsp_db?useSSL=false"/>
+</Context>
